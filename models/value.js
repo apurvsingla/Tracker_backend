@@ -16,6 +16,9 @@ const valueSchema = new mongoose.Schema({
     },
     year: {
         type: String
+    },
+    numericDate: {
+        type: Number
     }
 }, {
     timestamps: true,

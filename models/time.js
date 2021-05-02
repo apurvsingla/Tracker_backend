@@ -12,9 +12,6 @@ const timeSchema = new mongoose.Schema({
     id: {
         type: Number
     },
-    numericDate: {
-        type: Number
-    }
 }, {
     timestamps: true,
     writeConcern: {
