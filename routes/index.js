@@ -22,7 +22,7 @@ router.get('/time', async (req,res) => {
 
 router.post('/postTime', async (req,res,next) => {
   try {
-    let previous = await Time.findOneAndUpdate({id: 1}, {$set : {time: req.body.time}});
+    let previous = await Time.findOneAndUpdate({id: 1}, {$set : {time: req.body.time, numericDate: req.body.numericDate}});
     if(previous){
       // console.log('yes')
       return res.status(200).json({message: 'successfully updated'})
