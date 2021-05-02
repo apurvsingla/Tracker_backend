@@ -22,7 +22,7 @@ router.get('/time', async (req,res) => {
 
 router.post('/postTime', async (req,res,next) => {
   try {
-    let previous = await Time.findOneAndUpdate({id: 1}, {$set : {time: req.body.time, numericDate: req.body.numericDate}});
+    let previous = await Time.findOneAndUpdate({id: 1}, {$set : {time: req.body.time}});
     if(previous){
       // console.log('yes')
       return res.status(200).json({message: 'successfully updated'})
@@ -46,7 +46,7 @@ router.post('/values', async (req,res) => {
     let previous = await Value.findOne({date: req.body.date});
     if(previous){
       console.log('yes')
-      await Value.findOneAndUpdate({date: req.body.date}, {$set: {value: req.body.value}});
+      await Value.findOneAndUpdate({date: req.body.date}, {$set: {value: req.body.value, numericDate: req.body.numericDate}});
       return res.status(200).json({message: `values are updated ${req.body.value}`});
     }
     const value = new Value(req.body);
